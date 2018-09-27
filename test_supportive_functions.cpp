@@ -64,12 +64,12 @@ BOOST_AUTO_TEST_SUITE(check_solveMatrixSweepMethod)
   BOOST_AUTO_TEST_CASE(solveMatrix)
   {
     unsigned long n = 4;
-    std::vector<double> a = {0, 1, 3, 2};
-    std::vector<double> c = {2, 5, 5, 3};
-    std::vector<double> b = {1, 3, 2, 0};
-    std::vector<double> f = {4, 9, 10, 6};
+    std::vector<double> a = {0, 1, 2, 3};
+    std::vector<double> c = {2, 3, 6, 4};
+    std::vector<double> b = {1, 1, 3, 0};
+    std::vector<double> f = {3, 5, 10, 7};
 
-    std::vector<double> expectedSolution = {8.0/9, 45.0 / 46, 4.0 / 5, 22.0 / 15};
+    std::vector<double> expectedSolution = {0.93220338, 1.135593, 0.661016, 1.254237};
     std::vector<double> solution = solveMatrixSweepMethod(n, a, c, b, f);
 
     BOOST_CHECK_EQUAL(solution.size(), n);

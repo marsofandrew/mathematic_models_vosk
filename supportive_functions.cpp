@@ -16,16 +16,19 @@ std::vector<double> solveMatrixSweepMethod(const unsigned long n, std::vector<do
   if (c[0] == 0) {
     throw std::invalid_argument("c[0] = 0");
   }
-  double m = 1;
-  for (int i = 1; i < n; i++) {
-    m = a[i] / c[i];
-    c[i] = c[i] - m * b[i - 1];
-    f[i] = f[i] - m * f[i - 1];
+  std::vector<double> alpha(n);
+  std::vector<double> beta(n);
+  alpha[0] = -b[0]/c[0];
+  beta[0] = f[0]/c[0];
+  for (int i = 1; i<n ; i++){
+    alpha[i] =-b[i-1]/(a[i-1]*alpha[i-1]+c[i-1]);
+    beta[i]=(f[i-1]-a[i-1]*beta[i-1])/(a[i-1]*alpha[i-1]+c[i-1]);
   }
   std::vector<double> solution(n);
-  solution[n - 1] = f[n - 1] / c[n - 1];
-  for (int j = n - 2; j >= 0; --j) {
-    solution[j] = (f[j] - b[j] * solution[j + 1]) / c[j];
+  solution[n-1] = (f[n-1]-a[n-1]*beta[n-1])/(a[n-1]*alpha[n-1]+c[n-1]);
+  for (int i = n-2; i>=0; --i){
+    solution[i] = alpha[i+1]*solution[i+1] + beta[i+1];
   }
+
   return solution;
 }

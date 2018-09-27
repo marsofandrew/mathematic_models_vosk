@@ -6,6 +6,7 @@
 #define MATHEMATIC_MODELS_VOSK_SUPPORTIVE_FUNCTIONS_HPP
 
 #include <vector>
+#include <functional>
 
 /**
  * solve Matrix by using sweep method

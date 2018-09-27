@@ -1,12 +1,8 @@
 #include <iostream>
+#include <functional>
 #include "supportive_functions.hpp"
 
-using funct=std::function<double(double)>
 
-void solveEquation(funct )
-{
-
-}
 
 int main()
 {
