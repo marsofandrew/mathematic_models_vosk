@@ -11,14 +11,14 @@
 class Equation
 {
 public:
-  using funct=std::function<double (double)>
-  Equation(funct k, funct q, funct v, double capa, double mu1, double mu2, std::size_t N, double Rmin, double Rright);
+  using funct=std::function<double (double)>;
+  Equation(funct k, funct q, funct f, double capa, double mu1, double mu2, std::size_t N, double Rmin, double Rright);
   std::vector<double> solve();
 
 private:
-  funct k_;
-  funct q_;
-  funct v_;
+  Equation::funct k_;
+  Equation::funct q_;
+  Equation::funct f_;
   const double capa_;
   const double mu1_;
   const double mu2_;
@@ -29,7 +29,7 @@ private:
   std::vector<double> rHalfMinus_;
   std::vector<double> rHalfPlus_;
   std::vector<double> r_;
-  std::vector<double> f_;
+  std::vector<double> v_;
 
   void init();
   void countF();

@@ -66,16 +66,20 @@ BOOST_AUTO_TEST_SUITE(check_solveMatrixSweepMethod)
     unsigned long n = 4;
     std::vector<double> a = {0, 1, 2, 3};
     std::vector<double> c = {2, 3, 6, 4};
-    std::vector<double> b = {1, 1, 3, 0};
+    std::vector<double> b = {1, 115, 3, 0};
     std::vector<double> f = {3, 5, 10, 7};
 
-    std::vector<double> expectedSolution = {0.93220338, 1.135593, 0.661016, 1.254237};
     std::vector<double> solution = solveMatrixSweepMethod(n, a, c, b, f);
 
     BOOST_CHECK_EQUAL(solution.size(), n);
-    for (int i = 0; i < solution.size(); ++i) {
-      BOOST_CHECK_CLOSE(solution[i], expectedSolution[i], 10e-3);
+    BOOST_CHECK_CLOSE(c[0] * solution[0] + b[0] * solution[1], f[0], 10e-14);
+    std::cout << f[0] - (c[0] * solution[0] + b[0] * solution[1]) << "\n";
+    for (int i = 1; i < n - 1; ++i) {
+      BOOST_CHECK_CLOSE(a[i] * solution[i - 1] + c[i] * solution[i] + b[i] * solution[i + 1], f[i], 10e-14);
+      std::cout << f[i] - (a[i] * solution[i - 1] + c[i] * solution[i] + b[i] * solution[i + 1]) << "\n";
     }
+    BOOST_CHECK_CLOSE(c[3] * solution[3] + a[3] * solution[2], f[3], 10e-14);
+    std::cout << f[3] - (c[3] * solution[3] + a[3] * solution[2]) << "\n";
   }
 
 BOOST_AUTO_TEST_SUITE_END()

@@ -4,10 +4,11 @@
 
 #include "Equation.hpp"
 
-Equation::Equation(funct k, funct q, funct v, double capa, double mu1, double mu2, std::size_t N, double Rmin, double Rright) :
+Equation::Equation(funct k, funct q, funct f,
+                   double capa, double mu1, double mu2, std::size_t N, double Rmin, double Rright) :
   k_(k),
   q_(q),
-  v_(v),
+  f_(f),
   capa_(capa),
   mu1_(mu1),
   mu2_(mu2),
@@ -20,7 +21,6 @@ Equation::Equation(funct k, funct q, funct v, double capa, double mu1, double mu
   r_(N_)
 {
   init();
-  countF();
 }
 
 void Equation::init()
@@ -36,7 +36,4 @@ void Equation::init()
   }
 }
 
-void Equation::countF() {
-  f_.emplace_back(-(r_[N_-1]*(capa_*v_(r_[N_-1])))/((h_/2)*r_[N_-1]));
-}
 
