@@ -1,13 +1,10 @@
 #include <iostream>
-#include <functional>
-#include "supportive_functions.hpp"
+#include "Equation.hpp"
 
 
-/*
+
 int main()
 {
-  std::cout << "Hello, World!" << std::endl;
   return 0;
 }
 
-*/

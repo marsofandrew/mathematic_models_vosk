@@ -13,7 +13,7 @@ class Equation
 public:
   using funct=std::function<double (double)>;
   Equation(funct k, funct q, funct f, double capa, double mu1, double mu2, std::size_t N, double Rmin, double Rright);
-  std::vector<double> solve();
+  std::vector<double> solve() const;
 
 private:
   Equation::funct k_;
@@ -30,10 +30,12 @@ private:
   std::vector<double> rHalfPlus_;
   std::vector<double> r_;
   std::vector<double> v_;
-
+  std::vector<double> rightSide_;
+  std::vector<double> a_;
+  std::vector<double> b_;
+  std::vector<double> c_;
   void init();
-  void countF();
-
+  void countCofficients();
 };
 
 #endif //MATHEMATIC_MODELS_VOSK_EQUATION_HPP

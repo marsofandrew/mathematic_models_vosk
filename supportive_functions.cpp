@@ -5,11 +5,10 @@
 #include <exception>
 #include <stdexcept>
 
-std::vector<double> solveMatrixSweepMethod(const unsigned long n, std::vector<double> a,
-                                            std::vector<double> c,
-                                            std::vector<double> b,
-                                            std::vector<double> f)
+std::vector<double> solveMatrixSweepMethod(std::vector<double> a, std::vector<double> c, std::vector<double> b,
+                                                                                         std::vector<double> f)
 {
+  const unsigned long n = a.size();
   if ((a.size() != n) || (b.size() != n) || (c.size() != n) || (f.size() != n)) {
     throw std::invalid_argument("one of your vector have invalid size");
   }
@@ -29,6 +28,5 @@ std::vector<double> solveMatrixSweepMethod(const unsigned long n, std::vector<do
   for (int i = n-2; i>=0; --i){
     solution[i] = alpha[i+1]*solution[i+1] + beta[i+1];
   }
-
   return solution;
 }
