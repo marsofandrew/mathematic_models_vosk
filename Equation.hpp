@@ -12,15 +12,24 @@ class Equation
 {
 public:
   using funct=std::function<double (double)>;
-  Equation(funct k, funct q, funct f, double capa, double mu1, std::size_t N, double rMin, double rMax);
+  Equation(const funct &k,
+           const funct &q,
+           const funct &f,
+           const double capa,
+           const double nu1,
+           const double nu2_,
+           const std::size_t N,
+           const double rMin,
+           const double rMax);
   std::vector<double> solve() const;
 
 private:
-  Equation::funct k_;
-  Equation::funct q_;
-  Equation::funct f_;
+  const Equation::funct k_;
+  const Equation::funct q_;
+  const Equation::funct f_;
   const double capa_;
-  const double mu1_;
+  const double nu1_;
+  const double nu2_;
   const std::size_t N_;
   const double rMin_;
   const double rMax_;

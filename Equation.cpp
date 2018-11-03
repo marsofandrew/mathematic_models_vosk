@@ -7,13 +7,15 @@
 #include <utility>
 #include "supportive_functions.hpp"
 
-Equation::Equation(funct k, funct q, funct f,
-                   double capa, double mu1, std::size_t N, double rMin, double rMax) :
-  k_(std::move(k)),
-  q_(std::move(q)),
-  f_(std::move(f)),
+Equation::Equation(const funct &k, const funct &q, const funct &f,
+                   const double capa, const double nu1, const double nu2,
+                   const std::size_t N, const double rMin, const double rMax) :
+  k_(k),
+  q_(q),
+  f_(f),
   capa_(capa),
-  mu1_(mu1),
+  nu1_(nu1),
+  nu2_(nu2),
   N_(N + 1),
   rMin_(rMin),
   rMax_(rMax),
@@ -48,12 +50,12 @@ void Equation::init()
     rHalfPlus_[j] = (r_[j] + h_ / 2);
   }
 
-  rightSide_[N_ - 1] = h_ / 2 * r_[N_ - 1] * f_(r_[N_ - 1]) + r_[N_ - 1] * mu1_;
+  rightSide_[N_ - 1] = h_ / 2 * r_[N_ - 1] * f_(r_[N_ - 1]) + r_[N_ - 1] * nu2_;
   for (int i = 1; i < N_ - 1; i++) {
     double r_i = r_[i];
     rightSide_[i] = h_ * r_i * f_(r_i);
   }
-  rightSide_[0] = mu1_;
+  rightSide_[0] = nu1_;
 }
 
 void Equation::countCofficients()
