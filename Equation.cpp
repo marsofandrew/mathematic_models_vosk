@@ -3,7 +3,6 @@
 //
 
 #include "Equation.hpp"
-
 #include <utility>
 #include "supportive_functions.hpp"
 
