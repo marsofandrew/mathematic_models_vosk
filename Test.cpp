@@ -47,7 +47,7 @@ void Test::printToTmpOutput(const std::vector<double> &solvedVector,
   tmpOutput_ << "max diff = "
              << currentDiff << "\n";
   if (prevDiff_ != -1) {
-    tmpOutput_ << "diff current/prev = " << currentDiff / prevDiff_ << "\n";
+    tmpOutput_ << "diff prev/current = " << prevDiff_/currentDiff << "\n";
   }
   tmpOutput_ << "---------------------------------------------------------\n";
   prevDiff_ = currentDiff;
