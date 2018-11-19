@@ -24,6 +24,10 @@ int main()
   test3.test(minPart, maxPart);
   test3.printResults();
 
+  Test::funct funct3 = [](double r) { return 5 * r * r; };
+  Test test4("third test", funct3, funct3, funct, [](double r) { return -195 * r * r; }, 2, 5, 51000, 1, 10);
+  test4.test(32, maxPart*4);
+  test4.printResults();
   return 0;
 }
 
