@@ -7,6 +7,7 @@
 #include "Test.hpp"
 #include "Equation.hpp"
 
+
 Test::Test(const std::string &name, const Equation::funct &u, const Equation::funct &k,
            const Equation::funct &q, const Equation::funct &f, const double capa,
            const double nu1, const double nu2, const double rMin, const double rMax) :
@@ -58,6 +59,8 @@ void Test::printResults()
   std::cout << "\n----------" << name_ << "---------------------------\n";
   std::cout << tmpOutput_.rdbuf();
 }
+
+
 
 std::vector<double> Test::countCorrectSolution(std::size_t n, double rMin, double rMax)
 {

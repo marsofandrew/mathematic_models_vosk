@@ -4,7 +4,7 @@
 
 #include "Equation.hpp"
 #include <utility>
-#include "supportive_functions.hpp"
+#include "../supportive_functions.hpp"
 
 Equation::Equation(const funct &k, const funct &q, const funct &f,
                    const double capa, const double nu1, const double nu2,
