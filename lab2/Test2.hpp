@@ -88,38 +88,45 @@ void Test2::test()
 {
 
   iteration<2, 2>();
-  /*iteration<32, 2>();
+  iteration<32, 2>();
   iteration<128, 2>();
   iteration<256, 2>();
+
   iteration<4, 4>();
   iteration<32, 4>();
   iteration<64, 4>();
   iteration<128, 4>();
+
   iteration<8, 8>();
   iteration<64, 8>();
   iteration<128, 8>();
   iteration<256, 8>();
+
   iteration<16, 16>();
   iteration<64, 16>();
   iteration<128, 16>();
-  iteration<1256, 16>();
+  iteration<256, 16>();
+
   iteration<32, 32>();
   iteration<64, 32>();
   iteration<128, 32>();
   iteration<256, 32>();
-  iteration<64, 64>();
+
   iteration<32, 64>();
+  iteration<64, 64>();
   iteration<128, 64>();
   iteration<256, 64>();
-  iteration<128, 128>();
+
   iteration<32, 128>();
   iteration<64, 128>();
+  iteration<128, 128>();
   iteration<256, 128>();
-  iteration<256, 256>();
+
   iteration<32, 256>();
   iteration<64, 256>();
   iteration<128, 256>();
-   */
+  iteration<256, 256>();
+
 }
 
 void Test2::printResults(std::ostream *ostream)

@@ -115,7 +115,7 @@ Matrix<double, Nr + 1, Nt + 1> Equation<Nr, Nt>::solve(const SolveMethod solveMe
     Vector<double, Nr + 1> current = {};
 
     if (solveMethod == EXPLICIT) {
-
+      auto test = (countC(tPrev) * prevColumn + countF(tPrev));
       current = prevColumn + (countC(tPrev) * prevColumn + countF(tPrev)) * tau_;
     }
 
@@ -175,7 +175,7 @@ Matrix<double, Nr + 1, Nr + 1> Equation<Nr, Nt>::countC(const double t)
 
     tmp.getMatrix()[i][i - 1] = (rHm * k_(rHm, t)) / (h_ * h_ * r);
     tmp.getMatrix()[i][i + 1] = (rHp * k_(rHp, t)) / (h_ * h_ * r);
-    tmp.getMatrix()[i][i] = -((rHp * k_(rHp, t) + rHm * k_(rHm, t)) / h_ + h_ * q_(r, t) * r) / (h_ * r);
+    tmp.getMatrix()[i][i] = -(rHp * k_(rHp, t)/h_ + rHm * k_(rHm, t) / h_ + h_ * q_(r, t) * r) / (h_ * r);
   }
 
   const std::size_t N = tmp.getAmountOfRows() - 1;
