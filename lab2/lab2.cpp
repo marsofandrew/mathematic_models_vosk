@@ -46,10 +46,12 @@ void lab2()
   test5.test();
   test5.printResults(&std::cout);
 */
-  Test2 test6("u(r,t)", T_MIN, T_MAX, R_MIN, R_MAX, funRT, funConst,
-              [](const double r, const double t) { return 2 * t - 7 * r * r + t * t - 4 * r * t * t; },
-              [](const double t) { return 1 + t * t; }, [](const double t) { return 20 + 5 * t * t; }, 1,
-              [](const double r) { return r * r; }, funRT);
+  Test2 test6("u(r,t)", T_MIN, T_MAX, R_MIN, R_MAX,
+              [](const double r, const double t) { return t; }, funConst,
+              [](const double r, const double t) { return 1+t; },
+              [](const double t) { return  t; }, [](const double t) { return  t; }, 1,
+              [](const double r) { return 0; },
+              [](const double r, const double t) { return t; });
   test6.test();
   test6.printResults(&std::cout);
 
