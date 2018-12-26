@@ -88,7 +88,7 @@ void Test2::test()
 {
 
   iteration<2, 2>();
-  iteration<32, 2>();
+  /*iteration<32, 2>();
   iteration<128, 2>();
   iteration<256, 2>();
 
@@ -126,7 +126,7 @@ void Test2::test()
   iteration<64, 256>();
   iteration<128, 256>();
   iteration<256, 256>();
-
+*/
 }
 
 void Test2::printResults(std::ostream *ostream)

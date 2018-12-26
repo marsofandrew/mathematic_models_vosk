@@ -10,7 +10,7 @@ void lab2()
 {
   Equations::function funConst = [](double r, double t) { return 1; };
   Equations::function funF = [](double r, double t) { return r - 1 / r; };
-  Equations::function funRT = [](double r, double t) { return r * t; };
+  Equations::function funRT = [](double r, double t) { return r * r + t * t; };
 
   Equations::function funLiner = [](double r, double t) { return r; };
   Equations::function funPolinom = [](double r, double t) { return r * r; };
@@ -22,7 +22,7 @@ void lab2()
   const double T_MAX = 1;
   const double R_MIN = 1;
   const double R_MAX = 2;
-  Test2 test1("const", T_MIN, T_MAX, R_MIN, R_MAX, funConst, funConst, funConst, funt1, funt1, 1, funt1, funConst);
+  /*Test2 test1("const", T_MIN, T_MAX, R_MIN, R_MAX, funConst, funConst, funConst, funt1, funt1, 1, funt1, funConst);
   test1.test();
   test1.printResults(&std::cout);
 
@@ -45,12 +45,12 @@ void lab2()
               funt1, [](const double t) { return 20; }, 1, [](const double r) { return r * r; }, funPolinom);
   test5.test();
   test5.printResults(&std::cout);
-
-  Test2 test6("u(r,t)", T_MIN, T_MAX, R_MIN, R_MAX, funConst, funConst,
-              [](const double r, const double t) { return r + r * t - t / r; },
-              [](const double t) { return t; }, [](const double t) { return 3 * t; }, 1,
-              [](const double r) { return 0; }, funRT);
-  test4.test();
-  test4.printResults(&std::cout);
+*/
+  Test2 test6("u(r,t)", T_MIN, T_MAX, R_MIN, R_MAX, funRT, funConst,
+              [](const double r, const double t) { return 2 * t - 7 * r * r + t * t - 4 * r * t * t; },
+              [](const double t) { return 1 + t * t; }, [](const double t) { return 20 + 5 * t * t; }, 1,
+              [](const double r) { return r * r; }, funRT);
+  test6.test();
+  test6.printResults(&std::cout);
 
 }
